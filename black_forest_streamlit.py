@@ -4,11 +4,18 @@ import os
 
 st.title("Black Forest Labs Image Generation")
 
-# Check if the API key is set in the environment
+# Check if the API key is set in the environment or in Streamlit secrets
 api_key = os.environ.get("BLACK_FOREST_LABS_API_KEY")
 if not api_key:
+    # If not in environment, try to get from Streamlit secrets
+    api_key = st.secrets.get("BLACK_FOREST_LABS_API_KEY")
+
+# Set the API key as an environment variable if found in secrets
+if api_key:
+    os.environ["BLACK_FOREST_LABS_API_KEY"] = api_key
+else:
     st.error(
-        "BLACK_FOREST_LABS_API_KEY is not set in the environment. Please set it before running the app."
+        "BLACK_FOREST_LABS_API_KEY is not set in the environment or Streamlit secrets. Please set it before running the app."
     )
     st.stop()
 
@@ -52,8 +59,9 @@ else:
 
 # Add a note about setting the API key
 st.sidebar.info(
-    "Make sure to set the BLACK_FOREST_LABS_API_KEY environment variable before running this app. "
+    "set the BLACK_FOREST_LABS_API_KEY environment variable before running this app locally. "
     "You can do this by running:\n\n"
     "export BLACK_FOREST_LABS_API_KEY='your_api_key_here'\n\n"
-    "Replace 'your_api_key_here' with your actual API key."
+    "Replace 'your_api_key_here' with your actual API key.\n\n"
+    "If deploying, set the API key in Streamlit secrets."
 )
