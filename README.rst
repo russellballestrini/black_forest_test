@@ -23,23 +23,17 @@ Requirements
 Installation
 ------------
 
-Install required packages::
-
-    pip install -r requirements.txt
-
-Setup
------
-
 1. Clone the Repository
 ~~~~~~~~~~~~~~~~~~~~~
 
 Clone this repository to your local machine::
 
-    git clone black_forest_test
+    git clone git@github.com:russellballestrini/black_forest_test.git
     cd black_forest_test
 
-2. Set Up Environment Variables
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install required packages::
+
+    pip install -r requirements.txt
 
 Set your API key as an environment variable::
 
@@ -57,7 +51,7 @@ Run the script with a prompt::
 The script will automatically create an ``images`` directory for storing generated images.
 
 
-Run the streamlit!::
+Run the streamlit web interface!::
 
     streamlit run black_forest_streamlit.py
 
