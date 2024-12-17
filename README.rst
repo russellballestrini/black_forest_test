@@ -24,7 +24,7 @@ Installation
 
 Install required packages::
 
-    pip install requests
+    pip install -r requirements.txt
 
 Setup
 -----
@@ -54,6 +54,12 @@ Run the script with a prompt::
     python black_forest_test.py "A beautiful sunset over the mountains"
 
 The script will automatically create an ``images`` directory for storing generated images.
+
+
+Run the streamlit!::
+
+    streamlit run black_forest_streamlit.py
+
 
 Output
 ------
