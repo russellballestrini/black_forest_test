@@ -14,6 +14,7 @@ Requirements
     - ``os``
     - ``time``
     - ``requests``
+    - ``streamlit`` (optional for web user interface)
     - ``argparse``
     - ``re``
     - ``sqlite3``
